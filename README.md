@@ -1,3 +1,3 @@
+# Typescript, Javascript
 # Nestjs
-# Mysql
-# todo-list
+# Mysql, TypeORM

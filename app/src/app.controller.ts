@@ -1,7 +1,7 @@
 import { Controller, Delete, Get, Post } from '@nestjs/common';
 import { AppService } from './app.service';
 
-@Controller()
+@Controller("sample-app")
 export class AppController {
   constructor(private readonly appService: AppService) { }
 
@@ -10,17 +10,17 @@ export class AppController {
     return this.appService.getHello();
   }
 
-  @Post("/add-todo")
+  @Post("/add")
   addTodo(): string {
     return this.appService.addTodo();
   }
 
-  @Post("/update-todo")
+  @Post("/update")
   updateTodo(): string {
     return this.appService.updateTodo();
   }
 
-  @Delete("/delete-todo")
+  @Delete("/delete")
   deleteTodo(): string {
     return this.appService.deleteTodo();
   }

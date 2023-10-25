@@ -14,11 +14,11 @@ export class TodoListService {
         return await this.todoRepository.find();
     }
 
-    async insertTodo(data: TodoEntity): Promise<boolean> {
+    async addTodo(data: TodoEntity): Promise<boolean> {
         return await this.todoRepository.insert(data) ? true : false;
     }
 
-    async removeTodo(data: any): Promise<boolean> {
+    async deleteTodo(data: any): Promise<boolean> {
         return await this.todoRepository.delete({ id: data.id }) ? true : false;
     }
 }

@@ -15,11 +15,11 @@ export class TodoListController {
 
     @Post("addTodo")
     async addTodo(@Body() data: TodoEntity): Promise<boolean> {
-        return await this.todoListService.insertTodo(data);
+        return await this.todoListService.addTodo(data);
     }
 
     @Post("deleteTodo/:id")
     async deleteTodo(@Param() data: any): Promise<boolean> {
-        return await this.todoListService.removeTodo(data);
+        return await this.todoListService.deleteTodo(data);
     }
 }

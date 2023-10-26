@@ -1,12 +1,13 @@
-import { TodoListModule } from './todo-list/todo-list.module';
+import { TodoListMySqlModule } from './todo-mysql/todo.module';
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { MongooseModule } from '@nestjs/mongoose';
+import { TodoListMongoModule } from './todo-mongo/todo.module';
 
 @Module({
   imports: [
-    TodoListModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',
@@ -18,6 +19,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       synchronize: true,
       autoLoadEntities: true
     }),
+    MongooseModule.forRoot('mongodb://localhost:27017', { dbName: 'todo-list' }),
+    TodoListMongoModule,
+    TodoListMySqlModule,
   ],
   controllers: [AppController],
   providers: [AppService],
